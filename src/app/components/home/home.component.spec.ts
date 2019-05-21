@@ -14,7 +14,7 @@ describe('HomeComponent', () => {
         TranslateModule.forRoot()
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -29,6 +29,6 @@ describe('HomeComponent', () => {
 
   it('should render title in a h1 tag', async(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('PAGES.HOME.TITLE');
+    expect(compiled.querySelector('h1').textContent).toContain('EcoTrack Fuel Tracker');
   }));
 });
