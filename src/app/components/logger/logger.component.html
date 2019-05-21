@@ -1,0 +1,45 @@
+  <div style="padding: 10px">
+
+    <ons-row>
+      <div *ngIf="fuelEconomy > 0" class="economy-widget">
+        <label>Economy</label> 
+        <span class="economy-value">{{ fuelEconomy | number: '1.1-1' }} mpg</span>
+      </div>
+    </ons-row>
+    <ons-row>
+      <hr />
+    </ons-row>
+    <ons-row>
+        <ons-col width="40%">
+            <span>{{ 'UOM.MILEAGE' | translate }}</span>
+            <div><ons-input [(ngModel)]="newFuelStop.mileage" type="number" placeholder="Current mileage" modifier="material"></ons-input></div>
+          </ons-col>
+
+      <ons-col width="40%">
+        <ons-icon icon="fa-gas-pump"></ons-icon> 
+        <span style="padding: 0 0 0 0.2em;">{{ 'UOM.LITRES' | translate }}</span>
+        <div><ons-input [(ngModel)]="newFuelStop.fuel" type="number" placeholder="Litre added" modifier="material"></ons-input></div>
+      </ons-col>
+      <ons-col width="20%">
+        <ons-button class="button full-width" (click)="addStop()">{{ 'ACTIONS.ADD' | translate }}</ons-button>
+      </ons-col>
+    </ons-row>
+
+  </div>
+
+<ons-list-title>{{ 'PAGES.LOGGER.FUEL_STOPS' | translate }}</ons-list-title>
+<ons-list>
+  <ons-list-item *ngFor="let fuelStop of fuelLog.fuelStops">
+    <div class="center">
+      <span class="mileage-list">{{ fuelStop.mileage | number }}</span>
+      <ons-icon icon="fa-gas-pump"></ons-icon>
+      <span class="fuel-list">{{fuelStop.fuel | number }}</span>
+    </div>
+    <div class="right">
+      <ons-button modifier="outline" class="button" (click)="removeStop(fuelStop)">{{ 'ACTIONS.REMOVE' | translate}}</ons-button>
+    </div>
+  </ons-list-item>
+</ons-list>
+
+
+
